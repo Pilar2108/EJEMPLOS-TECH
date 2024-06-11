@@ -1,0 +1,78 @@
+class Tarea:
+
+    def __init__(self, titulo, completada = False):
+        self.titulo = titulo
+        self.completada = completada
+     
+     
+     
+
+class ListaTareas:
+    
+    def __init__(self):
+        self.tareas = []
+
+
+    def agregar_tarea(self, tarea):
+        self.tareas.append(tarea)
+        
+    def marcar_completada(self, indice):
+        if 0 <= indice < len(self.tareas):
+            self.tareas[indice].completada = True
+            print("Tarea marcada como completada")
+        else:
+            print("Indice de la tarea no es valido")
+    
+    def mostar_tareas(self):
+        print("Lista de tareas: ")
+        
+        for idx, tarea in enumerate(self.tareas, start = 1):
+            if tarea.completada: 
+                estado = "Completada"
+            else:
+                estado = "Pendiente"
+            print(f"{idx} {tarea.titulo} {estado}")
+
+
+def mostrar_menu():
+    print("\n===Menu====")
+    print("1. Agregar tarea")
+    print("2. Marcar tarea como completada")
+    print("3. Mostar tarea")
+    print("4. Salir")
+    
+lista_tareas = ListaTareas()
+
+
+opcion = ""
+
+while opcion  != "4":
+    mostrar_menu()
+    opcion = input("Seleccione una opcion: ")
+    
+    if opcion == "1":
+       titulo = input ("Ingrese el titulo de la tarea: ")
+       tarea= Tarea(titulo)
+       lista_tareas.agregar_tarea(tarea)
+       print("Tarea agregada a la lista")
+       
+    elif opcion == "2":
+        lista_tareas.mostar_tareas()
+        indice= int(input("sekeccion la tarea a marcar como completada:"))-1
+        lista_tareas.marcar_completada(indice)
+        
+    elif opcion == "3":
+        lista_tareas.mostar_tareas()
+        
+    elif opcion == "4":
+      print ("Saliendo del programa....")
+    else:
+        print("Opcion invalida. Por favor seleccione una opcion valida")
+        
+
+
+    
+  
+ 
+ 
+     

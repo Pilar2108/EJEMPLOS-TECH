@@ -1,0 +1,50 @@
+class Empleado:
+   def __init__(self, nombre, apellido, salarioBase):
+    self.nombre = nombre
+    self.apellido= apellido
+    self.salarioBase = salarioBase
+
+   def calcularSalario(self)
+       return self.salarioBase
+
+   def __str__(self):
+       return f"{self.nombre}: {self.apellido}:"
+
+class EmpleadoTiempoCompleto(Empleado)
+   def __init__(self, nombre, apellido, salarioBase, bonoAnual1):
+       super().__init__(nombre, apellido, salarioBase)
+       self.bonoAnual1 = bonoAnual1
+
+   def calcularSalario(self)
+        salarioTotal = super().calcularSalario() + self.bonoAnual1
+        return salarioTotal
+
+
+class EmpleadoPorHoras(Empleado):
+    def __init__(self, nombre, apellido, salarioBase, horasTrabajadas, tafifaPorHoras):
+        super().__init__(nombre, apellido, salarioBase)
+        self.horasTrabajadas = horasTrabajadas
+        self.tafifaPorHoras = tafifaPorHoras
+         
+    
+    def calcularSalario(self):
+        salarioTotal = super().calcularSalario() + (self.horasTrabajadas * self.tafifaPorHoras)
+        return salarioTotal
+
+class EmpleadoPorComision(Empleado):
+    def __init__(self, nombre, apellido, salarioBase, ventasTotales, porcentajePorComision):
+        super().__init__(nombre, apellido, salarioBase)
+        self.ventasTotales = ventasTotales
+        self.porcentajePorComision = porcentajePorComision
+                 
+    def calcularSalario(self):
+        salarioTotal = super().calcularSalario() + (self.ventasTotales * self.porcentajePorComision)
+        return salarioTotal
+
+
+if __name__ == "__main__":
+    e1= EmpleadoTiempoCompleto("Juan", "Perez", 3000, 2000)
+    e2= EmpleadoPorHoras("Maria", "Gonzalez", 3000, 40, 30)
+    e3= EmpleadoPorComision("Luis", "Martinez", 1200, 1500, 0.2)
+    e3= EmpleadoPorComision("Melissa", "Gordillo", 1200, 1500, 0.2)
+          
